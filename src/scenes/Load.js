@@ -23,6 +23,11 @@ class Load extends Phaser.Scene{
         //graphics
         //backgrounds
         this.load.image('background', './assets/star_BG.png');
+
+        //sound
+        //music
+        this.load.audio('menu_bgm', './assets/boss_time_15.mp3');
+        this.load.audio('game_bgm', './assets/boss_time_full.mp3');
     }
 
     create(){
