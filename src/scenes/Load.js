@@ -9,7 +9,7 @@ class Load extends Phaser.Scene{
             //reset the loading fill in bar
             loadingBar.clear();
 
-            loadingBar.fillSyle(0xFFFFFF, 1);
+            loadingBar.fillStyle(0xFFFFFF, 1);
 
             loadingBar.fillRect(0, centerY, gameWidth * value, 5);
         });
@@ -20,6 +20,9 @@ class Load extends Phaser.Scene{
         });
 
         //load assets
+        //graphics
+        //backgrounds
+        this.load.image('background', './assets/star_BG.png');
     }
 
     create(){

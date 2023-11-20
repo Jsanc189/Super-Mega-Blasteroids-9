@@ -23,6 +23,7 @@ let config = {
     scene:[Load, Menu, Play, Ending, Credits]
 }
 
+let game = new Phaser.Game(config);
 //keys
 
 //set user Interface sizes

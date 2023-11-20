@@ -1,6 +1,6 @@
 class Menu extends Phaser.Scene{
     constructor() {
-        super("menuScene");
+        super('menuScene');
     }
 
     preload() {
@@ -8,6 +8,14 @@ class Menu extends Phaser.Scene{
     };
 
     create() {
+        this.gameOver = false;
+        //add background
+        this.sky = this.add.tileSprite(0,0, 700, 500, 'background').setOrigin(0,0);
+    }
 
+    update(){
+        if (!this.gameOver) {
+            this.sky.tilePostionY -= 4;
+        }
     }
 }
