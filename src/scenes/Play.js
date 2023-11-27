@@ -25,11 +25,42 @@ class Play extends Phaser.Scene{
         this.player.body.setImmovable(true);
         this.player.body.setSize(32, 72);
         this.PLAYER_VELOCITY = 200;
+        cursors = this.input.keyboard.createCursorKeys();
+
+        //player animation
+        this.anims.create({
+            key: 'moving',
+            frameRate:5,
+            repeat:-1,
+            frames: this.anims.generateFrameNumbers('character',{
+                start: 0,
+                end: 1
+            })
+        });
     }
 
     update() {
         if(!this.gameOver) {
+            let playerVector = new Phaser.Math.Vector2(0,0);
             this.p_sky.tilePositionY -=2;
+            if(cursors.up.isDown) {
+                playerVector.y = -1;
+            }
+            else if(cursors.down.isDown) {
+                playerVector.y = 1;
+            }
+
+            if(cursors.left.isDown) {
+                playerVector.x = -1;
+            }
+            else if(cursors.right.isDown) {
+                playerVector.x = 1;
+            }
+
+            playerVector.normalize();
+
+            this.player.setVelocity(this.PLAYER_VELOCITY * playerVector.x, this.PLAYER_VELOCITY * playerVector.y);
+            this.player.play('moving', true);
         }
     }
 }

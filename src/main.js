@@ -26,7 +26,7 @@ let config = {
 let game = new Phaser.Game(config);
 
 //keys
-let keyW, keyA, keyS, keyD, keyC, keySPACE;
+let keyW, keyA, keyS, keyD, keyC, keySPACE, cursors;
 
 //set user Interface sizes
 
