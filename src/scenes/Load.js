@@ -24,6 +24,20 @@ class Load extends Phaser.Scene{
         //backgrounds
         this.load.image('background', './assets/star_BG.png');
 
+        //player
+        this.load.spritesheet('character', './assets/ship_sheet.png',{
+            frameWidth: 120,
+            frameHeight: 100
+        });
+
+        //player info sprites
+        this.load.image('bullet', './assets/bullet.png');
+        this.load.image('life', './assets/life.png');
+
+        //enemy sprites
+        this.load.image('asteroid', './assets/asteroid.png');
+        this.load.image('alien', './assets/alien_ship.png');
+
         //sound
         //music
         this.load.audio('menu_bgm', './assets/boss_time_15.mp3');
