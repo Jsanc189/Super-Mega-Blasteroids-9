@@ -42,6 +42,9 @@ class Load extends Phaser.Scene{
         //music
         this.load.audio('menu_bgm', './assets/boss_time_15.mp3');
         this.load.audio('game_bgm', './assets/boss_time_full.mp3');
+
+        //Sounds
+        this.load.audio('select', './assets/select.wav');
     }
 
     create(){
