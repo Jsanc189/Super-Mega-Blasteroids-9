@@ -35,7 +35,7 @@ class Menu extends Phaser.Scene{
         this.title_message.depth = 1;
 
         this.select_message = this.add.text(gameWidth/2, gameHeight/3*2,
-        'Press Spacebar to start', titleConfig).setOrigin(0.5);
+        'Press Spacebar', titleConfig).setOrigin(0.5);
         this.select_message.setFontSize(30);
         this.select_message.depth = 1;
         this.tweens.add({
@@ -58,6 +58,7 @@ class Menu extends Phaser.Scene{
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     
 
@@ -69,7 +70,17 @@ class Menu extends Phaser.Scene{
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             //console.log("starting game")
             this.sound.play('select');
+            this.select_message.text = 'Press S to start\nPress C for credits';
+        }
+
+        if (Phaser.Input.Keyboard.JustDown(keyS)) {
+            this.sound.play('select');
             this.scene.start('playScene');
+        }
+
+        if (Phaser.Input.Keyboard.JustDown(keyC)) {
+            this.sound.play('select');
+            this.scene.start('creditScene');
         }
     }
 }

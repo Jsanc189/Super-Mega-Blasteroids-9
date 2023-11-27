@@ -26,8 +26,8 @@ class Load extends Phaser.Scene{
 
         //player
         this.load.spritesheet('character', './assets/ship_sheet.png',{
-            frameWidth: 120,
-            frameHeight: 100
+            frameWidth: 60,
+            frameHeight: 90
         });
 
         //player info sprites
