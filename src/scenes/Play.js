@@ -26,6 +26,7 @@ class Play extends Phaser.Scene{
         this.player.body.setSize(32, 72);
         this.PLAYER_VELOCITY = 200;
         cursors = this.input.keyboard.createCursorKeys();
+        keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
 
         //player animation
         this.anims.create({
@@ -63,4 +64,7 @@ class Play extends Phaser.Scene{
             this.player.play('moving', true);
         }
     }
+
+    
+
 }

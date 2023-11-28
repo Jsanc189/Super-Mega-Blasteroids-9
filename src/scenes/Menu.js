@@ -54,10 +54,7 @@ class Menu extends Phaser.Scene{
         this.sky = this.add.tileSprite(0,0, 700, 500, 'background').setOrigin(0,0);
 
         //define keys
-        keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     
