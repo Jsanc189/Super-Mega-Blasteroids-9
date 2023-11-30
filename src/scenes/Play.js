@@ -7,7 +7,7 @@ class Play extends Phaser.Scene{
         //play music for background
         this.bgmusic = this.sound.add('game_bgm',{
             mute: false,
-            volume: .2,
+            volume: .75,
             rate: 1,
             loop:true
         });
@@ -38,6 +38,22 @@ class Play extends Phaser.Scene{
                 end: 1
             })
         });
+
+        //make a group of asteroids
+        this.asteroid_group = this.add.group({
+            runChildUpdate: true
+        })
+        this.ASTEROID_VELOCITY = 100;
+
+        //spawn asteroids
+        this.time.delayedCall(500, ()=> {
+            this.addAsteroid();
+        })
+    }
+
+    addAsteroid() {
+        let asteroid = new Asteroids(this, Phaser.Math.Between(25, 625), 0, 'asteroid', this.ASTEROID_VELOCITY, gameHeight);
+        this.asteroid_group.add(asteroid);
     }
 
     update() {

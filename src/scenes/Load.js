@@ -48,6 +48,30 @@ class Load extends Phaser.Scene{
     }
 
     create(){
-        this.scene.start('menuScene')
+        let loadConfig = {
+            fontFamily: 'Calibri',
+            fontSize: '50px',
+            backgroundColor: '#000000',
+            color: '#FFFFFF',
+            align: 'center',
+            padding:{
+                top:5,
+                bottom:5
+            },
+            fixedWidth: 600
+        }
+
+        this.load_message = this.add.text(gameWidth/2, gameHeight/3*2,
+        'Press Spacebar', loadConfig).setOrigin(0.5);
+
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+    }
+
+    update() {
+        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
+            //console.log("starting game")
+            this.sound.play('select');
+            this.scene.start('menuScene')
+        }
     }
 }

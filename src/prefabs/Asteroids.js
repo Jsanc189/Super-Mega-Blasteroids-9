@@ -6,7 +6,7 @@ class Asteroids extends Phaser.Physics.Arcade.Sprite {
 
         this.parentScene.add.existing(this);
         this.parentScene.physics.add.existing(this);
-        this.body.setSize(70, 80);
+        this.body.setCircle(26);
         this.setVelocityY(velocity);
         this.setImmovable(true);
         this.height = gameHeight;
@@ -16,7 +16,7 @@ class Asteroids extends Phaser.Physics.Arcade.Sprite {
     update() {
         if (this.childAsteroid && this.x < gameHeight/5) {
             this.parentScene.addAsteroid(this.parentScene, this.setVelocityY);
-            this.childBarrier = false;
+            this.childAsteroid = false;
         }
         
         if (this.y > this.height) {
