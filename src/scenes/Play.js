@@ -39,21 +39,39 @@ class Play extends Phaser.Scene{
             })
         });
 
+        //bullet velocity
+        this.BULLET_VELOCITY = -100;
+        
+        //make a group of bullets
+        this.bullet_group = this.add.group({})
+
+        //keep track of scoring
+
         //make a group of asteroids
+        this.ASTEROID_VELOCITY = 100;
         this.asteroid_group = this.add.group({
             runChildUpdate: true
         })
-        this.ASTEROID_VELOCITY = 100;
+
+
 
         //spawn asteroids
         this.time.delayedCall(500, ()=> {
             this.addAsteroid();
+            this.time.delayedCall(1000, ()=>{
+                this.addAsteroid();
+            })
         })
     }
 
     addAsteroid() {
         let asteroid = new Asteroids(this, Phaser.Math.Between(25, 625), 0, 'asteroid', this.ASTEROID_VELOCITY, gameHeight);
         this.asteroid_group.add(asteroid);
+    }
+
+    addBullet() {
+        let bullet = new Bullets(this, this.player.x, this.player.y, 'bullet', this.BULLET_VELOCITY, gameHeight);
+        this.bullet_group.add(bullet);
     }
 
     update() {
@@ -74,10 +92,22 @@ class Play extends Phaser.Scene{
                 playerVector.x = 1;
             }
 
-            playerVector.normalize();
+            if(keyF.isDown) {
+                this.addBullet();
+            }
 
+            playerVector.normalize();
             this.player.setVelocity(this.PLAYER_VELOCITY * playerVector.x, this.PLAYER_VELOCITY * playerVector.y);
             this.player.play('moving', true);
+
+            this.physics.world.collide(this.player, this.asteroid_group, () =>{
+                this.gameOver = true;
+            });
+        }
+
+        else {
+            this.bgmusic.stop();
+            this.scene.start('menuScene');
         }
     }
 

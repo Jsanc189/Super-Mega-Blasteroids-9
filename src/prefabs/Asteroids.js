@@ -14,7 +14,7 @@ class Asteroids extends Phaser.Physics.Arcade.Sprite {
     }
 
     update() {
-        if (this.childAsteroid && this.x < gameHeight/5) {
+        if (this.childAsteroid && this.y > gameHeight/5*3) {
             this.parentScene.addAsteroid(this.parentScene, this.setVelocityY);
             this.childAsteroid = false;
         }
@@ -25,7 +25,7 @@ class Asteroids extends Phaser.Physics.Arcade.Sprite {
     }
 
     reset() {
-        this.x = Phaser.Math.Between(50, 650);
-        this.y = 0;
+        //this.x = Phaser.Math.Between(50, 650);
+        //this.y = 0;
     }
 }
