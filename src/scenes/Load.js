@@ -32,7 +32,10 @@ class Load extends Phaser.Scene{
 
         //player info sprites
         this.load.image('bullet', './assets/bullet.png');
-        this.load.image('life', './assets/life.png');
+        this.load.spritesheet('lives', './assets/lives.png', {
+            frameWidth: 115,
+            frameHeight: 50
+        });
 
         //enemy sprites
         this.load.image('asteroid', './assets/asteroid.png');

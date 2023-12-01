@@ -13,7 +13,7 @@ let config = {
     physics: {
         default: 'arcade',
         arcade:{
-            debug: true,
+            debug: false,
             gravity: {
                 x: 0,
                 y: 0
@@ -27,6 +27,9 @@ let game = new Phaser.Game(config);
 
 //keys
 let keyS, keyF, keyC, keySPACE, cursors;
+
+//life tracking animation
+let lives_left = 'lives_3';
 
 //set user Interface sizes
 
