@@ -8,6 +8,9 @@
 
 let config = {
     type: Phaser.AUTO,
+    render: {
+        pixelArt: true
+    },
     width: 700,
     height: 500,
     physics: {
@@ -20,6 +23,7 @@ let config = {
             }
         }
     },
+    autoCenter: Phaser.Scale.CENTER_BOTH,
     scene:[Load, Menu, Play, Ending, Credits]
 }
 

@@ -143,6 +143,7 @@ class Play extends Phaser.Scene{
             //check if player collides with asteroid and update life count
             this.physics.world.collide(this.player, this.asteroid_group, (player, asteroid) =>{
                 this.lives -= 1;
+                this.sound.play('hurt');
                 asteroid.destroy();
                 this.addAsteroid();
             });
@@ -165,6 +166,7 @@ class Play extends Phaser.Scene{
 
             //check if a bullet has collided with asteroid and update score
             this.physics.world.collide(this.asteroid_group, this.bullet_group, (asteroid, bullet) =>{
+                this.sound.play('explosion');
                 asteroid.destroy();
                 this.addAsteroid();
                 bullet.destroy();
