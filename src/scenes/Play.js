@@ -47,6 +47,10 @@ class Play extends Phaser.Scene{
 
         //keep track of scoring
         this.score = 0;
+        this.s_text = this.add.bitmapText(30, 30, 'minogram', "score: ", 15);
+        this.s_text.depth = 1;
+        this.scoreLeft = this.add.bitmapText(100, 30, 'minogram', this.score, 30);
+        this.scoreLeft.depth = 1;
 
         //life tracking and animation
         this.lives = 3;
@@ -171,6 +175,7 @@ class Play extends Phaser.Scene{
                 this.addAsteroid();
                 bullet.destroy();
                 this.score += 100;
+                this.scoreLeft.text = this.score;
 
             })
         }
