@@ -57,21 +57,8 @@ class Load extends Phaser.Scene{
     }
 
     create(){
-        let loadConfig = {
-            fontFamily: 'Calibri',
-            fontSize: '50px',
-            backgroundColor: '#000000',
-            color: '#FFFFFF',
-            align: 'center',
-            padding:{
-                top:5,
-                bottom:5
-            },
-            fixedWidth: 600
-        }
-
-        this.load_message = this.add.text(gameWidth/2, gameHeight/3*2,
-        'Press Spacebar', loadConfig).setOrigin(0.5);
+        this.load_message = this.add.bitmapText(gameWidth/2, gameHeight/3*2, 'minogram',
+        'Press Spacebar', 50).setOrigin(0.5);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }

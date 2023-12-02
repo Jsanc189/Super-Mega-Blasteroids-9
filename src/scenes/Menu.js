@@ -19,26 +19,12 @@ class Menu extends Phaser.Scene{
         this.menu_bgm.play();
         
         //text configuration
-        let titleConfig = {
-            fontFamily: 'Calibri',
-            fontSize: '50px',
-            backgroundColor: '#000000',
-            color: '#FFFFFF',
-            align: 'center',
-            padding:{
-                top:5,
-                bottom:5
-            },
-            fixedWidth: 600
-        }
-
-        this.title_message = this.add.text(gameWidth/2, gameHeight/3,
-        'SUPER MEGA BLASTEROIDS 9', titleConfig).setOrigin(0.5);
+        this.title_message = this.add.bitmapText(gameWidth/2, gameHeight/3, 'minogram',
+        'SUPER MEGA BLASTEROIDS 9', 48).setOrigin(0.5).setTint(0xcc3f3f);
         this.title_message.depth = 1;
 
-        this.select_message = this.add.text(gameWidth/2, gameHeight/3*2,
-        'Press S to start\nPress C for credits', titleConfig).setOrigin(0.5);
-        this.select_message.setFontSize(30);
+        this.select_message = this.add.bitmapText(gameWidth/2, gameHeight/3*2, 'minogram',
+        '  Press S to start\nPress C for credits', 30).setOrigin(0.5);
         this.select_message.depth = 1;
         this.tweens.add({
             targets: this.select_message,
@@ -59,9 +45,7 @@ class Menu extends Phaser.Scene{
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
         keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C);
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-    
-
-    
+        
     }
 
     update(){
