@@ -11,7 +11,7 @@ class Menu extends Phaser.Scene{
         //play music for background
         this.menu_bgm = this.sound.add('menu_bgm', {
             mute:false,
-            volumn:.2,
+            volumn:.75,
             rate: 1,
             loop: true
         });

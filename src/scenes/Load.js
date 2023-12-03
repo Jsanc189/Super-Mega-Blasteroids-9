@@ -60,6 +60,18 @@ class Load extends Phaser.Scene{
         this.load_message = this.add.bitmapText(gameWidth/2, gameHeight/3*2, 'minogram',
         'Press Spacebar', 50).setOrigin(0.5);
 
+        this.tweens.add({
+            targets: this.load_message,
+            alpha:{
+                from: 1,
+                to: 0 
+            },
+            ease: 'Sine.InOut',
+            duration: 1000,
+            repeat: -1,
+            yoyo: true
+        });
+
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
 

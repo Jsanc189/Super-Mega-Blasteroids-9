@@ -47,7 +47,7 @@ class Play extends Phaser.Scene{
 
         //keep track of scoring
         this.score = 0;
-        this.s_text = this.add.bitmapText(30, 30, 'minogram', "score: ", 15);
+        this.s_text = this.add.bitmapText(30, 30, 'minogram', "score: ", 15).setTint(0x83f634);
         this.s_text.depth = 1;
         this.scoreLeft = this.add.bitmapText(100, 30, 'minogram', this.score, 30);
         this.scoreLeft.depth = 1;
@@ -92,7 +92,10 @@ class Play extends Phaser.Scene{
             runChildUpdate: true
         })
 
-
+        //keep a group of aliens
+        this.alien_group = this.add.group({
+            runChildUpdate: false
+        })
 
         //spawn asteroids
         this.time.delayedCall(500, ()=> {
@@ -113,6 +116,12 @@ class Play extends Phaser.Scene{
     addBullet() {
         let bullet = new Bullets(this, this.player.x, this.player.y, 'bullet', this.BULLET_VELOCITY, gameHeight);
         this.bullet_group.add(bullet);
+    }
+
+    //help function to spawn in Aliens
+    addAlien(x, y) {
+        let alien = new Alien(this,x, y, 'alien', this.ASTEROID_VELOCITY, gameHeight);
+        this.alien_group.add(alien);
     }
 
     update() {
@@ -138,6 +147,7 @@ class Play extends Phaser.Scene{
             }
 
             if(Phaser.Input.Keyboard.JustUp(keyF)) {
+                this.sound.play('shoot');
                 this.addBullet();
             }
             playerVector.normalize();
@@ -151,6 +161,12 @@ class Play extends Phaser.Scene{
                 asteroid.destroy();
                 this.addAsteroid();
             });
+
+            this.physics.world.collide(this.player, this.alien_group, (player, alien) =>{
+                this.lives -= 1;
+                this.sound.play('hurt');
+                alien.destroy();
+            })
 
             if(this.lives == 3){
                 lives_left = 'lives_3';
@@ -173,10 +189,16 @@ class Play extends Phaser.Scene{
                 this.sound.play('explosion');
                 asteroid.destroy();
                 this.addAsteroid();
+                this.addAlien(asteroid.x, asteroid.y);
                 bullet.destroy();
                 this.score += 100;
                 this.scoreLeft.text = this.score;
 
+            })
+
+            this.physics.world.collide(this.alien_group, this.bullet_group, (alien, bullet) =>{
+                this.sound.play('explosion');
+                bullet.destroy();
             })
         }
 
