@@ -2,7 +2,12 @@
 // Super Mega Blasteroids 9
 // Date: 11/19/2023
 
-//music:
+//music: Background music via https://www.FesliyanStudios.com
+// "Boss Time" by David Fesliyan
+
+//Text art: frostyfreeze via https://frostyfreeze.itch.io/pixel-bitmap-fonts-png-xml
+
+//technically interesting: Implemented Bitmap text for style.  Utilized camera shake for effect.
 
 //approx hours spend on project: 
 
