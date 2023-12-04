@@ -209,7 +209,7 @@ class Play extends Phaser.Scene{
         //end of game phase
         else {
             this.bgmusic.stop();
-            this.scene.start('menuScene');
+            this.scene.start('creditScene');
         }
     }
 
