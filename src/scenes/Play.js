@@ -164,6 +164,7 @@ class Play extends Phaser.Scene{
                 this.addAsteroid();
             });
 
+            //check if player collides with asteroid and update life count
             this.physics.world.collide(this.player, this.alien_group, (player, alien) =>{
                 this.lives -= 1;
                 this.cameras.main.shake(200, .02, false);
@@ -172,10 +173,10 @@ class Play extends Phaser.Scene{
                 alien.destroy();
             })
 
+            //update life indicator
             if(this.lives == 3){
                 lives_left = 'lives_3';
             }
-
             else if(this.lives == 2){
                 lives_left = 'lives_2';
             }
@@ -200,6 +201,7 @@ class Play extends Phaser.Scene{
 
             })
 
+            //check if a bullet collided with alien and block shots
             this.physics.world.collide(this.alien_group, this.bullet_group, (alien, bullet) =>{
                 this.sound.play('explosion');
                 bullet.destroy();
@@ -208,7 +210,12 @@ class Play extends Phaser.Scene{
 
         //end of game phase
         else {
-            //end_score = this.score()
+            //update high scores
+            end_score = this.score()
+            if(end_score > high_score){
+                high_score = end_score;
+            }
+
             this.bgmusic.stop();
             this.scene.start('creditScene');
         }

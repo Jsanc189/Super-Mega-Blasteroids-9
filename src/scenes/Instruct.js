@@ -5,6 +5,9 @@ class Instruct extends Phaser.Scene{
 
 
     create() {
+        //background
+        this.sky = this.add.tileSprite(0,0, 700, 500, 'background').setOrigin(0,0);
+
         //story text
         this.story = this.add.bitmapText(gameWidth/2, gameHeight/7, 'minogram',
         'Hello Pilot!\nHumanity is under attack!  Evil aliens disguised as asteroids \nare approaching earth.',
@@ -20,8 +23,32 @@ class Instruct extends Phaser.Scene{
         'Follow the instructions below to fight complete your task!   ', 18).setOrigin(0.5).setTint(0xcc3f3f);
         this.story3.depth = 1;
 
-        //background
-        this.sky = this.add.tileSprite(0,0, 700, 500, 'background').setOrigin(0,0);
+        //game instructions
+        this.info = this.add.bitmapText(gameWidth/4-13, gameHeight/7*4, 'minogram',
+        '  Use arrow \nkeys to move.', 20).setOrigin(0.5)
+
+        this.info2 = this.add.bitmapText(gameWidth/2, gameHeight/7*4-10, 'minogram',
+        '  Press "F" \n key to fire \nyour weapon.', 20).setOrigin(0.5)
+        this.instructions = this.add.sprite(gameWidth/2, gameHeight/7*5+10, 'info');
+
+        this.info3 = this.add.bitmapText(gameWidth/4*3+25, gameHeight/7*4-10, 'minogram',
+        'Avoid hitting   \n asteroids or\n  enemy ships', 20).setOrigin(0.5)
+
+        this.start = this.add.bitmapText(gameWidth/2, gameHeight/7*6+30, 'minogram',
+        'Press Spacebar to start', 40).setOrigin(0.5);
+
+        this.tweens.add({
+            targets: this.start,
+            alpha:{
+                from: 1,
+                to: 0 
+            },
+            ease: 'Sine.InOut',
+            duration: 1000,
+            repeat: -1,
+            yoyo: true
+        });
+
         //set up keys
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }

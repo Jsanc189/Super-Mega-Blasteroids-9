@@ -24,6 +24,9 @@ class Load extends Phaser.Scene{
         //backgrounds
         this.load.image('background', './assets/star_BG.png');
 
+        //instruction image
+        this.load.image('info', './assets/instruct.png');
+
         //player
         this.load.spritesheet('character', './assets/ship_sheet.png',{
             frameWidth: 60,
