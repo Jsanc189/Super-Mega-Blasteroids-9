@@ -3,9 +3,6 @@ class Menu extends Phaser.Scene{
         super('menuScene');
     }
 
-    preload() {
-
-    };
 
     create() {
         //play music for background
@@ -54,7 +51,7 @@ class Menu extends Phaser.Scene{
         if (Phaser.Input.Keyboard.JustDown(keyS)) {
             this.sound.play('select');
             this.menu_bgm.stop();
-            this.scene.start('playScene');
+            this.scene.start('instructScene');
         }
 
         if (Phaser.Input.Keyboard.JustDown(keyC)) {

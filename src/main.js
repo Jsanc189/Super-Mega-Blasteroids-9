@@ -9,7 +9,7 @@
 
 //technically interesting: Implemented Bitmap text for style.  Utilized camera shake for effect.
 
-//approx hours spend on project: 
+//approx hours spend on project: 20+
 
 let config = {
     type: Phaser.AUTO,
@@ -29,7 +29,7 @@ let config = {
         }
     },
     autoCenter: Phaser.Scale.CENTER_BOTH,
-    scene:[Load, Menu, Play, Ending, Credits]
+    scene:[Load, Menu, Instruct, Play, Ending, Credits]
 }
 
 let game = new Phaser.Game(config);
@@ -39,6 +39,11 @@ let keyS, keyF, keyC, keySPACE, cursors;
 
 //life tracking animation
 let lives_left = 'lives_3';
+
+//ending_score tracking
+let end_score = 0;
+//highest score tracking
+let high_score = 0;
 
 //set user Interface sizes
 

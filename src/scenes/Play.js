@@ -208,6 +208,7 @@ class Play extends Phaser.Scene{
 
         //end of game phase
         else {
+            //end_score = this.score()
             this.bgmusic.stop();
             this.scene.start('creditScene');
         }
