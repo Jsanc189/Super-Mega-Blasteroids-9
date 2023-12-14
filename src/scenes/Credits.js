@@ -4,6 +4,9 @@ class Credits extends Phaser.Scene{
     }
 
     create() {
+        //background
+        this.screen = this.add.tileSprite(0,0, 700, 500, 'screen').setOrigin(0,0);
+        this.screen.depth = 1;
        //credits text
         this.credits = this.add.bitmapText(gameWidth/2, gameHeight/5, 'minogram',
         'CREDITS', 48).setOrigin(0.5).setTint(0xcc3f3f);

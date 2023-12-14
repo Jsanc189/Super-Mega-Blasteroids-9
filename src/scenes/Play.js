@@ -15,6 +15,8 @@ class Play extends Phaser.Scene{
         this.bgmusic.play();
         
         //add background
+        this.screen = this.add.tileSprite(0,0, 700, 500, 'screen').setOrigin(0,0);
+        this.screen.depth = 2;
         this.p_sky = this.add.tileSprite(0, 0, 700, 500, 'background').setOrigin(0,0);
 
         this.gameOver = false;
@@ -48,14 +50,14 @@ class Play extends Phaser.Scene{
 
         //keep track of scoring
         this.score = 0;
-        this.s_text = this.add.bitmapText(30, 30, 'minogram', "score: ", 15).setTint(0x83f634);
+        this.s_text = this.add.bitmapText(50, 30, 'minogram', "score: ", 15).setTint(0x83f634);
         this.s_text.depth = 1;
-        this.scoreLeft = this.add.bitmapText(100, 30, 'minogram', this.score, 30);
+        this.scoreLeft = this.add.bitmapText(150, 30, 'minogram', this.score, 30);
         this.scoreLeft.depth = 1;
 
         //life tracking and animation
         this.lives = 3;
-        this.life_count = this.physics.add.sprite(gameWidth - 80, 30, 'lives', 0).setScale(.75);
+        this.life_count = this.physics.add.sprite(gameWidth - 100, 50, 'lives', 0).setScale(.75);
         this.life_count.depth = 1;
         this.anims.create({
             key: 'lives_3',

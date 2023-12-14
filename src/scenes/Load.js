@@ -21,6 +21,11 @@ class Load extends Phaser.Scene{
 
         //load assets
         //graphics
+
+        //foreground
+        this.load.image('screen', './assets/screen.png');
+        
+
         //backgrounds
         this.load.image('background', './assets/star_BG.png');
 
@@ -61,6 +66,8 @@ class Load extends Phaser.Scene{
     }
 
     create(){
+        this.screen = this.add.tileSprite(0,0, 700, 500, 'screen').setOrigin(0,0);
+        this.screen.depth = 1;
         this.load_message = this.add.bitmapText(gameWidth/2, gameHeight/3*2, 'minogram',
         'Press Spacebar', 50).setOrigin(0.5);
 

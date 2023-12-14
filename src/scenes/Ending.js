@@ -6,6 +6,8 @@ class Ending extends Phaser.Scene{
     create() {
         //add background
         this.end_sky = this.add.tileSprite(0,0,700, 500, 'background').setOrigin(0,0);
+        this.screen = this.add.tileSprite(0,0, 700, 500, 'screen').setOrigin(0,0);
+        this.screen.depth = 1;
 
         //play effect for adding score
         this.score_effect = this.sound.add('score',{

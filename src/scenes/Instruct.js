@@ -7,6 +7,8 @@ class Instruct extends Phaser.Scene{
     create() {
         //background
         this.sky = this.add.tileSprite(0,0, 700, 500, 'background').setOrigin(0,0);
+        this.screen = this.add.tileSprite(0,0, 700, 500, 'screen').setOrigin(0,0);
+        this.screen.depth = 1;
 
         //story text
         this.story = this.add.bitmapText(gameWidth/2, gameHeight/7, 'minogram',

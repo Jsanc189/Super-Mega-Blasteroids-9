@@ -35,6 +35,10 @@ class Menu extends Phaser.Scene{
             yoyo: true
         });
 
+        //foreground
+        this.screen = this.add.tileSprite(0,0, 700, 500, 'screen').setOrigin(0,0);
+        this.screen.depth = 1;
+
         //add background
         this.sky = this.add.tileSprite(0,0, 700, 500, 'background').setOrigin(0,0);
 
