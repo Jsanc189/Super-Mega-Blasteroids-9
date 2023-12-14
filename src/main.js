@@ -35,13 +35,13 @@ let config = {
 let game = new Phaser.Game(config);
 
 //keys
-let keyS, keyF, keyC, keySPACE, cursors;
+let keyS, keyF, keyC, keyM, keySPACE, cursors;
 
 //life tracking animation
 let lives_left = 'lives_3';
 
 //ending_score tracking
-let end_score = 0;
+let end_score = 600;
 //highest score tracking
 let high_score = 0;
 

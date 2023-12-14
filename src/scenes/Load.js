@@ -54,6 +54,7 @@ class Load extends Phaser.Scene{
         this.load.audio('shoot', './assets/audio/laserShoot.wav');
         this.load.audio('explosion', './assets/audio/explosion.wav');
         this.load.audio('hurt', './assets/audio/hurt.wav');
+        this.load.audio('score', './assets/audio/score.wav');
 
         //font
         this.load.bitmapFont('minogram', './assets/fonts/minogram.png', './assets/fonts/minogram.xml');
@@ -82,7 +83,7 @@ class Load extends Phaser.Scene{
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             //console.log("starting game")
             this.sound.play('select');
-            this.scene.start('menuScene')
+            this.scene.start('menuScene');
         }
     }
 }

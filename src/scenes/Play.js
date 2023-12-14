@@ -210,14 +210,11 @@ class Play extends Phaser.Scene{
 
         //end of game phase
         else {
-            //update high scores
-            end_score = this.score()
-            if(end_score > high_score){
-                high_score = end_score;
-            }
+            //update score for ending
+            end_score = this.score;
 
             this.bgmusic.stop();
-            this.scene.start('creditScene');
+            this.scene.start('endingScene');
         }
     }
 
