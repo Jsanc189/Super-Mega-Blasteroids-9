@@ -27,7 +27,7 @@ class Play extends Phaser.Scene{
         this.PLAYER_VELOCITY = 200;
         cursors = this.input.keyboard.createCursorKeys();
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
-        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        keyC = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         //player animation
         this.anims.create({
@@ -148,7 +148,7 @@ class Play extends Phaser.Scene{
         this.add.bitmapText(gameWidth/2, gameHeight/4, 'minogram',
         "      Well Done pilot!\nLet's tally up your score!", 40).setOrigin(0.5)
         this.add.bitmapText(gameWidth/2, gameHeight/4*3, 'minogram',
-        "Press Spacebar to continue", 30).setOrigin(0.5);
+        "Press C to continue", 30).setOrigin(0.5);
         //clear asteroid and alien groups
         this.asteroid_group.clear(true, true);
         this.alien_group.clear(true, true);
