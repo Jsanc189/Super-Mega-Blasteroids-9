@@ -7,9 +7,11 @@
 
 //Text art: frostyfreeze via https://frostyfreeze.itch.io/pixel-bitmap-fonts-png-xml
 
-//technically interesting: Implemented Bitmap text for style.  Utilized camera shake for effect.
+//Phaser Components: Physics for player, asteroid, and enemy ship interaction and movement.
+//                   Text object using BitMap, Animation for ship flying effect, tweens used
+//                   for to draw attention to player info, camera shake and flashing effects
+//                   used when player interacts with enemy ships or asteroids.
 
-//approx hours spend on project: 20+
 
 let config = {
     type: Phaser.AUTO,

@@ -49,6 +49,16 @@ class Instruct extends Phaser.Scene{
             yoyo: true
         });
 
+        //sound effect
+        this.info_effect = this.sound.add('score',{
+            mute:false,
+            volumn:.75,
+            rate: 1,
+            loop:false
+        });
+
+        this.info_effect.play();
+
         //set up keys
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
@@ -56,6 +66,7 @@ class Instruct extends Phaser.Scene{
     update(){
         this.sky.tilePositionY -= 2;
         if(Phaser.Input.Keyboard.JustDown(keySPACE)){
+            this.info_effect.stop();
             this.scene.start('playScene')
         }
     }

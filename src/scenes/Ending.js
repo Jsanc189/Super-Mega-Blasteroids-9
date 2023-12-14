@@ -52,6 +52,9 @@ class Ending extends Phaser.Scene{
     }
 
     update() {
+        //move background
+        this.sky.tilePositionY -= 2;
+        
         //update score text
         if (this.score_addition < end_score){
             this.score_addition += 10;
