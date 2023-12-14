@@ -27,6 +27,7 @@ class Play extends Phaser.Scene{
         this.PLAYER_VELOCITY = 200;
         cursors = this.input.keyboard.createCursorKeys();
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         //player animation
         this.anims.create({
@@ -104,6 +105,15 @@ class Play extends Phaser.Scene{
                 this.addAsteroid();
             })
         })
+
+        //timer
+        this.timeLimit = 10;
+        this.gameTimer = this.time.addEvent({
+            delay: 1000,
+            loop: true,
+            callback: this.tick,
+            callbackScope: this
+        })
     }
 
     //helper function to spawn asteroids
@@ -122,6 +132,27 @@ class Play extends Phaser.Scene{
     addAlien(x, y) {
         let alien = new Alien(this,x, y, 'alien', this.ASTEROID_VELOCITY, gameHeight);
         this.alien_group.add(alien);
+    }
+
+    //helper function to increment time
+    tick() {
+        this.timeLimit--;
+        if(this.timeLimit == 0) {
+            this.outOfTime();
+        }
+    }
+
+    //helper function to show player game play is done
+    outOfTime() {
+        //dislay text to player
+        this.add.bitmapText(gameWidth/2, gameHeight/4, 'minogram',
+        "      Well Done pilot!\nLet's tally up your score!", 40).setOrigin(0.5)
+        this.add.bitmapText(gameWidth/2, gameHeight/4*3, 'minogram',
+        "Press Spacebar to continue", 30).setOrigin(0.5);
+        //clear asteroid and alien groups
+        this.asteroid_group.clear(true, true);
+        this.alien_group.clear(true, true);
+        this.PLAYER_VELOCITY = 0;
     }
 
     update() {
@@ -150,6 +181,7 @@ class Play extends Phaser.Scene{
                 this.sound.play('shoot');
                 this.addBullet();
             }
+
             playerVector.normalize();
             this.player.setVelocity(this.PLAYER_VELOCITY * playerVector.x, this.PLAYER_VELOCITY * playerVector.y);
             this.player.play('moving', true);
@@ -188,6 +220,11 @@ class Play extends Phaser.Scene{
             }
 
             this.life_count.play(lives_left, true);
+
+            //end game check
+            if(Phaser.Input.Keyboard.JustDown(keySPACE)){
+                this.gameOver = true
+            }
 
             //check if a bullet has collided with asteroid and update score
             this.physics.world.collide(this.asteroid_group, this.bullet_group, (asteroid, bullet) =>{

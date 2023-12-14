@@ -15,7 +15,7 @@ class Instruct extends Phaser.Scene{
         this.story.depth = 1;
 
         this.story2 = this.add.bitmapText(gameWidth/2, gameHeight/7*2, 'minogram', 
-        'It is your job to expose them by shooting off their asteroid  \narmor before they approach earth.',
+        'It is your job to expose them by shooting off their asteroid  \narmor before they approach earth \nwithin 60 seconds.',
         18).setOrigin(0.5).setTint(0xcc3f3f);
         this.story2.depth = 1;
 

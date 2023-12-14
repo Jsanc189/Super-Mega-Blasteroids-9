@@ -53,16 +53,17 @@ class Ending extends Phaser.Scene{
 
     update() {
         //move background
-        this.sky.tilePositionY -= 2;
-        
+        this.end_sky.tilePositionY -= 2;
+
         //update score text
         if (this.score_addition < end_score){
             this.score_addition += 10;
             this.score_count.text = this.score_addition;
         }
 
-        if (this.score_addition > high_score){
+        if (this.score_addition > localStorage.getItem('SMB9HighScore')){
             high_score += 10;
+            localStorage.setItem('SMB9HighScore', high_score);
             this.hscore_test.text = 'NEW HIGH SCORE!';
             this.high_score_text.text = high_score.toString();
         }

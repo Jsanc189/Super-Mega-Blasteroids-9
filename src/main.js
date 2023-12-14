@@ -43,9 +43,10 @@ let keyS, keyF, keyC, keyM, keySPACE, cursors;
 let lives_left = 'lives_3';
 
 //ending_score tracking
-let end_score = 600;
+let end_score = 0;
 //highest score tracking
 let high_score = 0;
+localStorage.setItem('SMB9HighScore', high_score);
 
 //set user Interface sizes
 
