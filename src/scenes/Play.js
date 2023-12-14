@@ -224,7 +224,7 @@ class Play extends Phaser.Scene{
             this.life_count.play(lives_left, true);
 
             //end game check
-            if(Phaser.Input.Keyboard.JustDown(keySPACE)){
+            if(Phaser.Input.Keyboard.JustDown(keyC)){
                 this.gameOver = true
             }
 
