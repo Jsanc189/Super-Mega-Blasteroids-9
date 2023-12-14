@@ -107,7 +107,7 @@ class Play extends Phaser.Scene{
         })
 
         //timer
-        this.timeLimit = 10;
+        this.timeLimit = 60;
         this.gameTimer = this.time.addEvent({
             delay: 1000,
             loop: true,
